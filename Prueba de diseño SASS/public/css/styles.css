@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,700;0,800;1,200;1,300;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.heading-1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 67px;
+  font-weight: 700;
+}
+
+.primary-button {
+  display: inline-block;
+  border-radius: 9999px;
+  background-color: #D85A5A;
+  border: 0;
+  color: #FFFFFF;
+  font-size: 20px;
+  padding: 1rem 4rem 1rem 4rem;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.primary-button::before {
+  content: "";
+  position: absolute;
+  border-radius: 9999px;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  background-color: #ba2c2c;
+  height: 100%;
+  width: 0;
+  transition: all 200ms ease-in-out;
+}
+.primary-button:hover {
+  color: #FFFFFF;
+}
+.primary-button:hover::before {
+  width: 100%;
+}
+
+.secondary-button {
+  display: inline-block;
+  border-radius: 9999px;
+  background-color: #FFFFFF;
+  border: 0;
+  color: #D85A5A;
+  font-size: 20px;
+  padding: 1rem 4rem 1rem 4rem;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 2px 7px 8px 0px rgba(0, 0, 0, 0.17);
+}
+.secondary-button::before {
+  content: "";
+  position: absolute;
+  border-radius: 9999px;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  background-color: #d9d9d9;
+  height: 100%;
+  width: 0;
+  transition: all 200ms ease-in-out;
+}
+.secondary-button:hover {
+  color: #D85A5A;
+}
+.secondary-button:hover::before {
+  width: 100%;
+}
+
+.text {
+  color: #9E7474;
+  font-family: "Raleway", sans-serif;
+  line-height: 54px;
+  width: 30rem;
+}
+
+.logo {
+  font-family: "Poppins", sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  height: 4rem;
+  font-family: "Nunito", sans-serif;
+}
+
+.container {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  height: 4rem;
+  width: fit;
+}
+.container::before {
+  content: "";
+  height: 100%;
+  width: 0.4rem;
+  background-color: #D85A5A;
+}
+
+/*# sourceMappingURL=styles.css.map */
