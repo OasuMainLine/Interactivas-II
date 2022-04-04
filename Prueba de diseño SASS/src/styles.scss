@@ -19,7 +19,24 @@
 }
 
 
+@mixin reset-component{
+    border-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin image($height, $rotation: 0){
+    object-fit: contain;
+    max-width: 100%;
+    height: $height;
+
+    @if $rotation != 0 and $rotation != 0deg {
+        transform: rotate($rotation)
+    }
+
+}
 @mixin headings($size, $weight){
+    @include reset-component;
     font-family: vars.$poppins;
     font-size: getSize($size);
     font-weight: getWeight($weight);
@@ -38,10 +55,10 @@
 }
 
 @mixin button($primary: vars.$red, $secondary: vars.$white){
+    @include reset-component;
     display: inline-block;
     border-radius: 9999px;
     background-color: $primary;
-    border: 0;
     color: $secondary;
     font-size: getSize("xsmall");
     padding: 1rem 4rem 1rem 4rem;
@@ -70,6 +87,7 @@
         }
     }
 }
+
 
 .heading-1{
     @include headings("xlarge", "bold")
@@ -102,4 +120,8 @@
     @include with-line;
     height: 4rem;
     width: fit;
+}
+
+.image-1{
+    @include image(500px, 0deg)
 }
