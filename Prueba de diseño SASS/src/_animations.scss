@@ -1,0 +1,28 @@
+
+@keyframes fade-in-r {
+
+    0%{
+        transform: translateX(90px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+}
+
+@keyframes fade-in-l {
+
+    0%{
+        transform: translateX(-90px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+}

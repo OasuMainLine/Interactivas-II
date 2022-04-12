@@ -1,0 +1,72 @@
+@use "functions" as *;
+@use "mixins" as *;
+@use "base";
+.text-center{
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col{
+    flex-direction: column;
+}
+
+.w-full{
+    width: 100%;
+}
+.black{
+    color: base.$color-black;
+}
+.bold{
+    font-weight: getWeight("bold");
+}
+@for $i from 1 through 96 {
+    .w-#{$i}{
+        width: pxToRem($i);
+    }
+
+    .gap-#{$i}{
+        gap: pxToRem($i);
+    }
+}
+
+@for $i from 1 through 24 {
+    .p-#{$i}{
+        padding: pxToRem($i);
+    }
+
+    .pl-#{$i}{
+        padding-left: pxToRem($i);
+    }
+
+    .pr-#{$i}{
+        padding-right: pxToRem($i);
+    }
+
+    .m-#{$i}{
+        margin: pxToRem($i);
+    }
+
+    .ml-#{$i}{
+        margin-left: pxToRem($i);
+    }
+
+    .mr-#{$i}{
+        margin-right: pxToRem($i);
+    }
+    .mt-#{$i}{
+        margin-top: pxToRem($i);
+    }
+}
+ 
+
+.fade-in-r{
+    @include fade-in;
+}
+
+
+.fade-in-l{
+    @include fade-in($fade:"left");
+}

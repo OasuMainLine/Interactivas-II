@@ -1,0 +1,25 @@
+
+.main-container{
+    display: inline-flex;
+    flex-direction: column;
+    width: 100vw;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    max-height: fit-content;
+    
+}
+
+.button-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    height: fit-content;
+    gap: 3rem;
+}
+.header{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+}

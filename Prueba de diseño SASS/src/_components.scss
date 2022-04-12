@@ -1,0 +1,90 @@
+@use "mixins" as *;
+@use "animations";
+@use "base";
+
+.heading-1{
+    @include headings("xlarge", "bold");
+   
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include sm{
+        &::after{
+            content: "";
+            display: inline-block;
+            width: 12rem;
+            height: .3rem;
+            background-color: base.$color-red;
+        }
+    }
+}
+
+.heading-2{
+    @include headings("large", "regular");
+ 
+}
+
+.primary-button{
+    @include button(base.$color-red)
+}
+
+.secondary-button{
+    @include button(base.$color-white,base.$color-red);
+    box-shadow: 2px 7px 8px 0px base.$shadow-black;
+}
+
+.text{
+
+    color: base.$color-caparol;
+    font-family: base.$font-content;
+    line-height: base.$spacing;
+    margin-left: 1.5rem;
+    width: 30rem;
+    height: fit-content;
+
+    @include sm{
+        width: 20rem
+    }
+}
+
+.logo{
+ 
+    @include headings("large", "bold");
+    @include sm{
+        text-align: left;
+    }
+    height: 4rem;
+    font-family: base.$font-brand;
+}
+
+.image-1{
+    @include image(500px, 0deg);
+  
+    @include sm{
+        object-fit: cover;
+        height: 90%;
+        width: 90%;
+        border: .2rem base.$color-red dotted;
+        border-radius: 9999px;
+    }
+
+}
+
+.cart{
+    width: 3rem;
+ 
+    @include sm{
+        // width: ;
+    }
+}
+.arrow{
+    width: 4rem;
+
+    @include sm{
+        width: 8rem;
+        margin-left: 8rem;
+    }
+}
+

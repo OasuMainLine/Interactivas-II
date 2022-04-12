@@ -1,0 +1,18 @@
+@use "base";
+@use "sass:math";
+
+@function getSize($size){
+    @return map-get(base.$sizes, $size);
+}
+
+@function getWeight($weight){
+    @return map-get(base.$weights, $weight);
+}
+
+@function getImage($imageName){
+    @return url("../public/imgs/#{$imageName}.png");
+}
+
+@function pxToRem($px){
+    @return #{math.div($px, 16)}rem
+}

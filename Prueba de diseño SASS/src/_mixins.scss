@@ -1,0 +1,123 @@
+@use "base";
+@use "functions" as *;
+@use "sass:math";
+
+
+@mixin sm(){
+    @media screen and (max-width: 700px) {
+        @content;
+    }
+}
+
+@mixin lg(){
+    @media screen and (max-width: 992px) {
+        @content;
+    }
+}
+
+@mixin xl(){
+    @media screen and (max-width: 1500px) {
+        @content;
+    }
+}
+
+
+
+
+@mixin reset-component{
+    border-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin image($height, $rotation: 0){
+    object-fit: contain;
+    max-width: 100%;
+    height: $height;
+
+    @if $rotation != 0 and $rotation != 0deg {
+        transform: rotate($rotation)
+    }
+
+}
+
+@mixin headings($size, $weight){
+    @include reset-component;
+    font-family: base.$font-headings;
+    font-size: getSize($size);
+    font-weight: getWeight($weight);
+
+    @include sm {
+        font-size: math.div(getSize($size), 1.5);
+        text-align: center;
+    }
+}
+
+@mixin with-line($color: base.$color-red, $height: 100%, $width: .4rem, $gap: .3rem, $top: 0){
+    position: relative;
+  
+    &::before{
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: $height;
+        width: $width;
+        background-color: $color;
+        @if $top != 0 {
+            margin-top: $top;
+        }
+    }
+}
+
+@mixin button($primary: base.$color-red, $secondary: base.$color-white){
+    @include reset-component;
+    display: inline-grid;
+    width: fit-content;
+    height: fit-content;
+    justify-content: center;
+    align-content: center;
+    border-radius: 9999px;
+    background-color: $primary;
+    color: $secondary;
+    font-size: getSize("xsmall");
+    padding: 1rem 4rem 1rem 4rem;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer; 
+
+    &::before{
+        content: "";
+        position: absolute;
+        border-radius: 9999px;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        @if lightness($primary) > 50{
+            background-color: darken($primary, 15%);
+        } @else {
+            background-color: lighten($primary, 30%);
+        }
+       
+        height: 100%;
+        width: 0;
+        transition: all 200ms ease-in-out;
+    }
+
+    &:hover{
+        &::before{
+            width: 100%
+        }
+    }
+}
+
+@mixin fade-in($duration: 1s, $ease: ease-in-out, $direction: forwards, $fade: "right"){
+    @if ($fade == "left"){
+        animation: fade-in-l $duration $ease $direction;
+    } 
+    @if ($fade == "right"){
+        animation: fade-in-r $duration $ease $direction;
+    }
+    
+}
